@@ -3,7 +3,7 @@
  * Plugin Name: Wiser Notify
  * Plugin URI: https://wisernotify.com
  * Description: Wiser Notify plugin will make webhook remote calls to Wiser Notify backend server on each signup & new order happening in WooCommerce store. Data sent via webhook to Wiser Notifyâ€™s backend server is limited to the few anonymous pieces of information , also synced last 30 ordered with WiserNotify, Easy digital downloads support added
- * Version: 2.6
+ * Version: 2.7
  * Author: Wiser Notify
  * Author URI: https://wisernotify.com
  * */
@@ -21,6 +21,7 @@ if (array_key_exists('REMOTE_ADDR', $_SERVER))
     $remote_addr = sanitize_textarea_field($_SERVER['REMOTE_ADDR']);
 class Wiser {
     /* Class Constructer */
+    public $src;
     function __construct() {
         $this->actions();
         $this->src = get_option('pixelcode');
@@ -50,7 +51,7 @@ class Wiser {
 
     /* Create Settings Page For Plugin */
     function wiser_page_create() {
-        add_menu_page('Wiser', 'Wiser', 'manage_options', 'wiser', array($this, 'wiser_page_html'),  plugin_dir_url(__FILE__).'/assets/images/wiser-notifly-favi.png', 24);
+        add_menu_page('WiserNotify', 'WiserNotify', 'manage_options', 'WiserNotify', array($this, 'wiser_page_html'),  plugin_dir_url(__FILE__).'/assets/images/wiser-notifly-favi.png', 24);
     }
     /* Enqueue Scripts And Styles For Admin Only */
     function enqueue_scripts_admin() {
@@ -90,8 +91,8 @@ class Wiser {
                     <h3>Welcome to Wiser notify </h3>
                 </div>
                 <div class="wiser-card wiser-card-sign">
-                    <h4> Don't have account? <a target="blank" href="https://app.wisernotify.com/signup?utm_source=WordPress&utm_medium=WithinPlugin">Signup now. </a>
-                        We have free & paid plan. <a target="blank" href="https://wisernotify.com/pricing?utm_source=WordPress&utm_medium=WithinPlugin">Click here. </a>
+                    <h4> Don't have account? <a target="blank" href="https://app.wisernotify.com/signup?utm_source=WordPress&utm_medium=WithinPlugin">Create new account </a>
+                        And start for free. Looking for more features? <a target="blank" href="https://wisernotify.com/pricing?utm_source=WordPress&utm_medium=WithinPlugin">see our paid plans. </a>
                     </h4>
                 </div>
             </div>
@@ -115,16 +116,15 @@ class Wiser {
                     </div>
                     <div class="nf-group-bottom">
                         <a target="blank"
-                           href="https://support.wisernotify.com/your-account-api-key-amp-quota-history/">Know
-                            about your API KEY </a>
+                           href="https://wisernotify.com/docs/getting-started/get-your-api-key-from-your-wisernotify-account/">Get your API KEY </a>
                     </div>
                     <div class="nt-msg-text">
                         <p class="red-text">Your API key is wrong & Please, Enter valid API key.</p>
                         <p class="success-msg wn-success">
                              Congratulation! Your API key is verified & Also, Pixel tag is added successfully on your site.
                             <a target="blank"
-                               href="https://support.wisernotify.com/">
-                                Click here to know about "how to add Notification?"</a>
+                               href="https://wisernotify.com/docs/notifications/social-proof/">
+                                Explore notifications guides</a>
                         </p>
                     </div>
                 </div>
@@ -214,18 +214,26 @@ function varify_api() {
             $order_json = $this->wiser_get_comment();
             update_option('wiser_enable_for_wp', 1);
         }
-        if (in_array('easy-digital-downloads/easy-digital-downloads.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+     
+		if ( function_exists('edd_get_payment') ) {
+            // Prepare data for EDD
             $dataArr = array(
                 'ak' => $apikey,
-                'ht' => $server_data,
+                'ht' => $host,
                 'fa' => 'edd',
             );
-            $wiser_varify_api_for_plugins = $this->wiser_varify_api_for_plugins($dataArr, $apikey);
-            if ($wiser_varify_api_for_plugins == 1) {
+            $wiser_varify_edd = $this->wiser_varify_api_for_plugins($dataArr, $apikey);
+
+            if ( $wiser_varify_edd == 1 ) {
                 update_option('wiser_enable_for_edd', 1);
+				// Fetch latest 30 orders and send to WiserNotify
+        $this->wiser_send_latest_30_edd_orders();
+
             } else {
                 update_option('wiser_enable_for_edd', 0);
             }
+        } else {
+            update_option('wiser_enable_for_edd', 0);
         }
         $ajaxRes['success'] = true;
         _e(json_encode($ajaxRes));
@@ -671,6 +679,109 @@ function varify_api() {
             $bodyArr = json_decode($body);
         }
     }
+	
+	function wiser_send_latest_30_edd_orders() {
+    global $server_data;
+
+    // 1. Ensure EDD is active
+    if ( ! function_exists('edd_get_payments') ) {
+        error_log('EDD plugin not detected. Skipping order sync.');
+        return;
+    }
+
+    // 2. Fetch the latest 30 completed EDD orders
+    $payments = edd_get_payments( array(
+        'number'  => 30,         // retrieve last 30
+        'status'  => 'publish',  // 'publish' = "Completed" in EDD
+        'orderby' => 'date',
+        'order'   => 'DESC',
+    ));
+
+    if ( empty($payments) ) {
+        error_log('No completed EDD orders found.');
+        return;
+    }
+
+    // 3. Prepare the array of order data
+    $orders_data = array();
+
+    foreach ( $payments as $payment_record ) {
+        $payment_id = $payment_record->ID;
+        $payment    = new EDD_Payment( $payment_id );
+
+        // EDD Payment fields
+        $customer_email = $payment->email;
+        $first_name     = $payment->first_name;
+        $last_name      = $payment->last_name;
+        $payment_date   = $payment->date;
+        $timestamp_ms   = strtotime( $payment_date ) * 1000;
+        $total_amount   = $payment->total;
+        $ip_address     = isset( $payment->ip ) ? $payment->ip : ''; // EDD stores IP in $payment->ip
+
+        // Address details
+        $address = is_array($payment->address) ? $payment->address : array();
+        $city    = isset($address['city'])    ? $address['city']    : '';
+        $state   = isset($address['state'])   ? $address['state']   : '';
+        $country = isset($address['country']) ? $address['country'] : '';
+
+        // 4. Gather line items in a WooCommerce-like structure
+        $cart_items = $payment->cart_details;
+        $products   = array();
+
+        if ( ! empty($cart_items) && is_array($cart_items) ) {
+            foreach ( $cart_items as $item ) {
+                $download_id = $item['id'];
+                $image_url   = get_the_post_thumbnail_url( $download_id, 'full' ) ?: '';
+
+                $products[] = array(
+                    'pn'   => get_the_title($download_id),  // Product name
+                    'pu'   => get_permalink($download_id),   // Product URL
+                    'piu'  => $image_url,                    // Product image URL
+                    'pdid' => $download_id,                  // Product ID
+                    'fa'   => 'wordpress',                   // Source
+                    'insdt'=> date(DATE_ISO8601, strtotime('now')),
+                );
+            }
+        }
+
+        // 5. Build final order array (WooCommerce-like)
+        $orders_data[] = array(
+            'orderId' => $payment_id,                     // EDD payment ID
+            'un'      => trim($first_name . ' ' . $last_name), // Customer Name
+            'e'       => $customer_email,                 // Email
+            'ct'      => $city,                           // City
+            'st'      => $state,                          // State
+            'cn'      => $country,                        // Country
+            'i'       => $ip_address,                     // IP
+            'ht'      => $server_data,                    // Host
+            'insdt'   => $timestamp_ms,                   // Date in ms
+            'products'=> $products,                       // Items purchased
+        );
+    }
+
+    // 6. Send data to WiserNotify's EDD endpoint
+    $apiurl   = 'https://is.wisernotify.com/api/wp/data';
+    $key      = get_option('apikey');
+    $pixelTag = get_option('pixeltag');
+    $headers  = array( 'ak' => $key, 'ti' => $pixelTag );
+
+    $response = wp_remote_post( $apiurl, array(
+        'method'      => 'POST',
+        'timeout'     => 45,
+        'redirection' => 5,
+        'blocking'    => true,
+        'headers'     => $headers,
+        'body'        => $orders_data,
+    ));
+
+    // 7. Log success or error
+    if ( is_wp_error($response) ) {
+        error_log( 'WiserNotify EDD orders error: ' . $response->get_error_message() );
+    } else {
+        error_log( 'WiserNotify EDD orders sent successfully.' );
+    }
+}
+
 }
 $WiserObj = new Wiser();
 

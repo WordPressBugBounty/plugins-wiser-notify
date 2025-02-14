@@ -1,375 +1,205 @@
-﻿=== WiserNotify Social Proof & FOMO Notification, WooCommerce Sales Popup, Review Popups, Notification Bars & Urgency Widgets ===
-Contributors: wisernotify
-Tags: social proof notification, sales popup, notification, urgency popup, fomo, recent sales
-Donate link: https://wisernotify.com
-Requires at least: 5.1
-Tested up to: 6.4.2
-Requires PHP: 7.2
-Stable tag: 2.6
+﻿=== WiserNotify – Social Proof & FOMO Notifications, WooCommerce Sales Popups, Reviews & Announcement Bar ===  
+Contributors: wisernotify  
+Tags:  social proof, fomo, sales popup, reviews notification, woocommerce 
+Donate link: https://wisernotify.com  
+Requires at least: 5.1  
+Tested up to: 6.7.2  
+Requires PHP: 7.2  
+Stable tag: 2.7 
+License: GPL-3.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 
-Boost your sales with Wisernotify Social Proof Notifications and FOMO Widgets. Implement social proof marketing strategy within minutes using our Plugin.
+Boost trust & sales with WiserNotify! Show sign-ups, sales popups & reviews. Convert faster with Social proof & FOMO widgets. It offers 250+ integrations.
 
+== Description ==
 
+**Show who’s buying, subscribing, or reviewing—live on your site with WiserNotify social proof notifications and boost your conversion rates.**  
 
+**WiserNotify** is [a social proof tool and FOMO marketing app](https://wisernotify.com/) trusted by **11,000+ online businesses** to increase conversions on WooCommerce (or any WordPress) website.  
 
-## Description ##
-**Best Social Proof, Reviews, WooCommerce Sales Popup & Urgency Notifications plugin**
+**Ever felt more confident buying a product because you saw others doing the same?** That’s the power of social proof.  
 
+**WiserNotify** leverages real-time notifications—showcasing sales, reviews, and sign-ups—to build instant trust and credibility on your site. If you’re spending on ads but still not getting the conversions you want, we help close that trust gap by showing visitors exactly how people are interacting with your brand.  
 
-## How does it work?🤔 ##
+### Why WiserNotify?  
+- **FOMO Marketing Made Easy:** Display live sales popups, visitor counts, and more to create urgency.  
+- **Seamless Integrations:** Connect with **250+ platforms** to automate your social proof strategy—no coding required.  
+- **Instant Credibility:** Real-time notifications show genuine customer actions, boosting trust and conversion rates.  
+- **Customizable & User-Friendly:** Quickly match notifications to your site’s branding and layout.  
 
+Stop losing potential customers to doubt. Let **WiserNotify** turn every visitor action into a compelling social proof notification and watch your conversion rates climb.  
 
-Looking to establish trust and authority for your business while also enhancing your conversion rates? Look no further than WiserNotify - the ultimate solution for increasing your e-commerce store's conversion rates.
+== How It Works ==  
 
+1. **Collect Visitor Actions:** WiserNotify automatically pulls data from your website or connected apps (sales, form submissions, customer reviews, etc.).  
+2. **Display Real-Time Notifications:** These actions are shown as popups or widgets, creating a sense of urgency and credibility.  
+3. **Drive Conversions:** By tapping into the FOMO effect, visitors are motivated to take action—be it a purchase, sign-up, or any other goal.  
 
-With WiserNotify's advanced and fully customizable social proof notification system, you can create real-time **social proof notifications** that turn visitor actions into valuable validation. Whether it's sales, conversions, reviews, live visitor counts, or other important announcements, WiserNotify makes it easy to display this information directly on your website without the need for any coding knowledge.
 
+== Why Choose WiserNotify Over Other Social Proof Plugins? ==  
 
-By leveraging the power of social proof, WiserNotify can help you boost your credibility and drive more sales. In fact, our users typically see an **uplift of 17% in their conversions** after implementing our solution. So why wait? Try WiserNotify today and start reaping the benefits of social proof for your website.
+WiserNotify isn’t just another social proof tool—it’s a complete conversion optimization solution designed to outshine alternatives like Provesource, FOMO, UseProof, SalesPop, WPFomify, NotificationX, Nextsale, Nudgify, Bizzy, HoverSignal, and Credible.  
 
+### Our Unique Advantages  
 
+- **50+ Notification Designs:** A vast library of customizable notifications that seamlessly match your brand’s style.  
+- **Built-in A/B Testing & CRO Features:** Optimize messaging and design with A/B testing and conversion rate optimization tools.  
+- **250+ Direct Integrations:** Automate real-time notifications across various platforms.  
+- **Complete Automation & Ease of Use:** Set up, manage, and track notifications effortlessly.  
+- **Scalable & Future-Proof:** Continuous updates ensure long-term effectiveness.  
 
 
-## Features & Benefits?😇 ##
+== Automate Social Proof & FOMO with WiserNotify’s Direct Integrations ==
 
 
-**Connect WiserNotify with all types of website builders, marketing tools, billing & reviews platform**
+**eCommerce & Payment:**  
+[WooCommerce](https://wisernotify.com/social-proof/woocommerce/) → Display recent sales & purchases  
+[EasyDigitalDownloads](https://wisernotify.com/social-proof/EasyDigitalDownloads/) → Show digital product sales  
+[LearnDash](https://wisernotify.com/social-proof/LearnDash/) → Highlight course enrollments  
+[MemberPress](https://wisernotify.com/social-proof/MemberPress/) → Show new memberships  
+[Stripe](https://wisernotify.com/social-proof-app-stripe/) → Display payment activities  
 
+**Social Media & Reviews:**  
+[Facebook](https://wisernotify.com/facebook-review-widget/) → Display Facebook reviews  
+[Google](https://wisernotify.com/embed-google-reviews-on-website/) → Embed Google reviews  
 
-- **Auto-sync your sales:** from WooCommerce, EasyDigitalDownloads, learndash, memberpress & any other WordPress plugin
-- **Collect Reviews:** From Facebook, Capterra, Google, Stamped, Twitter & other reviews platform
-- **Integrate with any landing page & form builders tools:** ClickFunnels, Unbounce, Instapage,  SwipePages, LeadPages, JotForm, TypeForm, Zoho forms & WP Fluent Forms
-- **Integrate with website building platforms:** Shopify, Wix, Magento, Teachable, Thrivecart, Thinkific, 3DCart, webflow, SendOwl & [200+ integrations](https://wisernotify.com/integration/)
+**Landing Pages & Form Builders:**  
+[ClickFunnels](https://wisernotify.com/social-proof-app-clickfunnels/) → Show opt-in & sign-up activities  
+[Unbounce](https://wisernotify.com/social-proof/unbounce/) → Display form submissions  
+[Instapage](https://wisernotify.com/social-proof/Instapage/) → Highlight new leads  
+[SwipePages](https://wisernotify.com/social-proof/swipe-pages/) → Show recent sign-ups  
+[LeadPages](https://wisernotify.com/social-proof/leadpages/) → Display form conversions  
+[JotForm](https://wisernotify.com/social-proof/jotform/) → Highlight new form submissions  
+[TypeForm](https://wisernotify.com/social-proof/TypeForm/) → Show survey responses  
+[Zoho Forms](https://wisernotify.com/social-proof/Zoho-Forms/) → Display lead generation forms  
+[ConvertKit](https://wisernotify.com/social-proof/convertkit/) → Show new subscribers  
+[WP Fluent Forms](https://wisernotify.com/social-proof/wp-fluent-forms/) → Display form entries  
 
+**Website Builders & Platforms:**  
+[Shopify](https://wisernotify.com/social-proof-fomo-app-shopify/) → Display live sales & recent purchases  
+[Wix](https://wisernotify.com/social-proof-fomo-app-wix/) → Show popups & social proof notifications  
+[Magento](https://wisernotify.com/social-proof-extension-magento/) → Highlight recent sales & customer activity  
+[Teachable](https://wisernotify.com/social-proof/teachable/) → Display student enrollments  
+[Thrivecart](https://wisernotify.com/social-proof/thrivecart/) → Show real-time purchase notifications  
+[Thinkific](https://wisernotify.com/social-proof-app-thinkific/) → Highlight course enrollments  
+[Shift4shop](https://wisernotify.com/social-proof/shift4shop/) → Show eCommerce transactions  
+[Webflow](https://wisernotify.com/social-proof/webflow/) → Display lead captures & sales  
+[SendOwl](https://wisernotify.com/social-proof/sendowl/) → Highlight digital product sales  
+[ecwid](https://wisernotify.com/social-proof-ecwid/) → Show recent sales  
 
+**Webinar & Automated Events:**  
+[eWebinar](https://wisernotify.com/social-proof/ewebinar/) → Show webinar registrations & attendees  
+[EverWebinar](https://wisernotify.com/social-proof/everwebinar/) → Highlight recent webinar sign-ups  
 
+Each integration is supported with **dedicated use cases and documentation** for easy setup.
 
-## 10+ dynamic social proof notifications & Urgency widgets like a countdown timer, announcements, review feed, subscriber, WhatsApp & announcement popup.🤯 ##
+check out more [250+ platforms](https://wisernotify.com/integration/)**,
 
+== Show What’s Happening on Your Store ==
 
-- Show live visitors count
-- Show sign-up, email subscribers & conversion notification
-- Show recent sales popup
-- Show subscriber & sales count in the notification.
-- Show page viewed count in the notification recently.
-- Show customers' reviews in the notification.
-- Show YouTube video with its views, comments, and subscribers count in the notification.
-To know more about features, visit this **[features page](https://wisernotify.com/features/)**
+### Live Visitors  
+Show the number of people currently browsing your site.  
+[youtube https://www.youtube.com/watch?v=T_-VZKJe__U]
 
+### Sales Activities  
+Highlight recent purchases to build trust and FOMO.  
+[youtube https://www.youtube.com/watch?v=ym_G0LKuGSk]
 
-## 100% Customization to match your site feels and looks✌ ##
+### Lead Form Submissions  
+Let visitors see new sign-ups in real time.  
+[youtube https://www.youtube.com/watch?v=dIbgxlF1EIU]
 
+### Customer Reviews  
+Showcase star ratings or testimonials for instant social proof.  
+[ https://www.youtube.com/watch?v=eTsM3iB5Wxo]
 
-- Choose notification design from the notification template gallery.
-- Set your brand color & combination in the notification.
-- Customize text.
-- Set display rules.
-- Add data sources.
-- Make a clickable notification by setting a CTA button on it.
+### YouTube Video Stats  
+Display live subscriber counts or video views.  
+[youtube https://www.youtube.com/watch?v=p5wcKJuTnxY]
 
+### Timers & Announcements  
+Use countdowns and announcements to spark urgency.  
+[youtube https://www.youtube.com/watch?v=ZNBv2lbwccw]
 
-## Advanced visitor insights👥 ##
+### Call to Action Widgets  
+Prompt visitors to take immediate action with compelling CTAs.  
+[youtube https://www.youtube.com/watch?v=Dh4skNLhh18]
 
+### Flashing Tab  
+Grab attention when users switch tabs.  
+[youtube https://www.youtube.com/watch?v=tc0_wmBAg0k]
 
-- Visitor reports with time duration filters.
-- Notification performance shows unique visits count, impression, click, hover & CTA event count.
-- Visitor profile card with site\'s visiting history.
 
+== Installation ==  
 
-## Advanced Analytics and Goal Reports🎯 ##
+1. **Upload the Plugin:** Install via WordPress or manually upload to `/wp-content/plugins`.  
+2. **Activate:** Go to the Plugins page and activate **WiserNotify**.  
+3. **Configure Settings:**  
+   - Navigate to the **WiserNotify** menu in WordPress.  
+   - Copy your **API key** from the WiserNotify dashboard.  
+   - Paste it into the plugin settings and click **Submit**.  
+4. **Create Your First Notification:** Follow the wizard to set up and customize your notifications.  
 
+== Reviews ==  
 
+> "I've used many social proof tools, but **WiserNotify** offers a lot of designs and features that helped increase my conversions."  
+> — **Lianne W.**  
 
+Read more [user reviews](https://wisernotify.com/reviews/).  
 
-- Reports includes unique visitor, notification impression, click & hover count.
-- Measure notification performance by setting the goal.
-- Compare every data point into the chart.
+== Frequently Asked Questions ==  
 
+= How do I start? =  
+Sign up at [WiserNotify](https://app.wisernotify.com/signup), choose a plan, install the plugin, and start creating notifications.  
 
-## A/B testing & reporting🧪 ##
+= Are you offering a free trial? =  
+Yes! We provide a free trial with a limited visitor quota.  
 
+= Does WiserNotify affect site performance? =  
+No, our script loads **asynchronously** in **94ms** and is **only 35KB**, ensuring zero impact on site speed or SEO.   
 
-- Create notification variants and test them with different copies, CTA, images, and setting to achieve the best results.
+= Can I customize notification designs? =  
+Yes! Use our notification wizard to adjust colors, text, and branding.  
 
-
-
-
-## How does WiserNotify lower customer acquisition costs & improve conversion rate? ##
-
-
-WiserNotify, increase engagement of visitors & establish their trust in your website. Notification creates urgency & curiosity in visitors' minds by showing what other customers are doing or saying about your site & product. It also creates social validation and FOMO (fear of missing opportunity), which helps you convert more visitors into customers. This way, it helps lower customer acquisition costs & improves your conversion rates.
-
-
-
-
-= DOCUMENTATION AND SUPPORT =
-* Visit [ WiserNotify support portal](http://support.wisernotify.com)
-* Visit [privacy policy](https://wisernotify.com/privacypolicy) 
-* Visit [Terms & Condition](https://wisernotify.com/termsconditions)
-* Visit [Security statement](https://wisernotify.com/security)
-* Visit [GDRP FAQ ](https://wisernotify.com/gdprfaq)
-
-
-Take care: WiserNotify doesn’t show any sensitive user information like email id & contact details, which may give away their identities.
-
-
-## We are GDPR compliant ##
-
-
-WiserNotify is compliant with the current GDPR. We value the privacy & rights of our users and their customers. As part of our GDPR compliant process, we have reviewed and updated our internal systems, processes, database, and documentation. Also, build the features that help our client to be GDPR compliant. Data will be redacted following Shopify's Policies. If you are using WiserNotify as a customer and have agreed to our terms of service, you do not need to sign an additional Data Protection Agreement. As of May 25th, 2018, our terms of service include providing compliance with GDPR.
-
-
-If you are a Partner or a customer who needs further documentation of compliance with WiserNotify acting as a Processor, you can sign our DPA. For that, We are requesting you to email support@wisernotify.com for further information. We have appointed a Data Protection Officer & you will get reverted once you submit the request.
-
-
-
-
-## Installation ##
-WiserNotify plugin installation is simple & straightforward and requires no programming or special skills. It will work with woo commerce plugin & regular WordPress sites too.
-WiserNotify works like software as services. To activate the plugin, you need one account with any subscription plan. Right now, we are offering a free & paid plan. After installation, you need to activate it & enter the API key from the WiserNotify dashboard panel.
-Next, all things you can manage from your WiserNotify Dashboard account.
-
-
-Instructions:
-
-
-•        Install the plugin through the WordPress plug-in screen OR unzip the plugin archive to ‘/wp-content/plugins
-
-
-•        In the WordPress ‘Plugins’ page, activate the plugin.
-
-
-•        Select \"Wiser Notify\"“ menu item on the sidebar.
-
-
-•        Copy over your API key from the WiserNotify dashboard, paste it here in the plugin, & click on Submit button.
-
-
-
-
-    •   After verifying the API key, you can start creating a notification.
-
-
-        Note: you must have a plan, so purchase it through the dashboard.
-
-
-
-
-•        After that, you can add \"New Notification\" and follow the wizard steps & finish it.
-•        Done. Sit back and watch how social proof boosts your sales & improves conversion rates!
-
-
-
-
-
-
-
-
-Notice:
-
-
-WiserNotify is a cloud based service working on SaaS(Software as Service) model and the plugin communicates with the Wiser Notify servers, including remote webhook calls, data collected includes product details and customer details.
-
-
-WiserNotify plugin calls Wisernotify backend server on \"API Key submission\" & verify their customer & also, add \"JavaScript code \" on customer\'s website.
-
-
-This JavaScript code added into website to display notifications. It required to show notifications like recent visitors, recent purchases & signup on your front-end store.
-
-
-WiserNotify plugin will make webhook remote calls to Wiser Notify back-end server on each signup & new order happening in WooCommerce store. Data sent via webhook to Wiser Notify back-end server is limited to a few anonymous pieces of information. It is required for plugin functionality: order ID, customer first name, customer shipping city, province, and country, timestamp of the created order, list of ordered products with following data product ID, product name, product image URL, and product URL.
-
-
-Wiser Notify exposes public/private key encryption protected REST endpoint for WiserNotify back-end service access to limited access to your WooCommerce orders history (same data exposed as on webhook event). This endpoint is used by WiserNotify back-end server
-on first access of settings page and on user’s request for changed orders threshold settings.
-
-
-
-
-== Frequently Asked Questions ==
-
-
-Having Questions in mind? See our FAQ:
-
-
-We've tried to list generally asked.
-
-
-=How do I start ?=
-Click Here https://app.wisernotify.com/signup, Signup with any of mentioned options, Select plan as per your requirement, Install this plug-in on your WooCommerce website.        And then, you can start creating notifications through the dashboard panel.
-
-
-= How do I choose the best plan for my website? =
-Our plan is restricted to the number of unique visitors count so that you can choose the right plan based on your website visitors. We are not charging for notification impressions. 
-
-
-= Are you offering a Free plan? =
-Yes, we offer a Free plan too, with a limited visitor quota.
-
+= Can I use it on multiple websites under one account? =  
+Yes! You can use WiserNotify on multiple websites under one account with no extra charge. Manage them all easily from a single dashboard.
 
 = How does WiserNotify secure my data? =
 We used advanced security to store your data on our server. We use charge-bee for payment processing. We never store your full card details on our server. Even when you delete or ask us to cancel your account. We delete all records from our server.
 
-
-= Is it any performance issue that occurs after adding the WiserNotify pixel script tag on my site? =
-Our script loads in 94ms. It's the best one. The size of the script is up to 35kb. It\'s also the lowest in the industry. WiserNotify Pixel loads asynchronously, so it will not affect your site speed or SEO. 
-
-
-= How does WiserNotify charge us? =
-We will charge you in US Dollars ($). We have a monthly & yearly plan. In the monthly plan, We will charge you every 30 days. It's an automated process. We will inform you before going to charge. 
-
-
-= How many no. notifications I can create in my account? =
-You can create as many as you want. There is no restriction on a paid plan. 
-
-
-= Can we control notification on mobile devices? =
-Yes, In the setting, You can configure the position of notification like top or bottom. Also, hide it if you want.
-
-
-= How do you offer support? =
-Yes, We don’t charge for support. We believe it\'s our duty to provide you not to charge it separately. Our support team is available for 18 hours a day & Sunday off.
-
-
-= Can I cancel my account & get a refund? =
- Yes, You can cancel it. On cancellation, We will stop charging from the next billing cycle. You can use our services until your current visitor quota is available. For refund, We have 14 days money-back policy. If you ask us to refund your amount before 14 days, We will not ask for a single reason & refund your amount.
-
-
-= Are you offering 3rd party data integrations on request? =
-Right now, we have 200+ integrations. We keep adding as per client request. 
-
-
-= Can I customize the notification design as per my branding? =
-Yes, you can customize notifications. In the notification wizard, you can see the color & text option where you can write your content & set your color combination. 
-
-
-= Do you have notification templates options or just one notification design? =
-Yes, We have a notification templates gallery. Right now, we have two template designs. We keep adding it. Also, build a new notification design as per client request. It should be a unique & creative one.
-
-
 For more details, you can visit [FAQ page](https://wisernotify.com/pricing/#faq)
 
 
-
-
 == Screenshots ==
-1. It helps to improve your conversion rate using a comprehensive social proof & FOMO marketing strategy.
-2. Take the number of users, sales, reviews, and more, that you've collected and put on the website.
-3. Make a notification look and feel that suits your branding need. No tech skill required
-4. Advanced notification timing & data setting options
-5. Decide how and when to show your notifications with WiserNotify's robust display options.
-6. See in real-time what's happening across all your site with detailed analytics and insights for each notification
+1. Sales Activities – Showcase recent purchases to boost trust and urgency.
+2. Lead Activities – Highlight new sign-ups, digital download, webinar or any form submissions actions
+3. Customers Reviews – Display recent reviews to build credibility and influence decisions.
+4. Social Media Posts – Feature your latest social media updates to drive more interactions.
+5. Visitor Activity – Show live visitors, recent visits, and total views to boost engagement. 
+6. Inline Social Proof – Show product-specific visits & sales seamlessly, no popups!
+7. Timers & offers- Show your offers with timers.
+8. Design - Change text, templates, animation, timing, notification loop & positions
+9. Display - Add page rules to target notifications on all or specific pages & multiple websites
+10. Data-source- Connect multitple data-source for any notifications using integrations or autom capture forms
 
 
-== Changelog ==
-= 1 =
-* Added plugin & its detail.
-* Added readme.txt file 
+== Changelog ==  
 
+= 2.7 =
+- WooCommerce & EasyDigitalDownloads updates.
 
-= 1.1 =
-* synced last 30 ordered with WiserNotify.
+= 2.6 =  
+- Added support for inline social proof messages.  
+- Improved validation checks.  
 
+= 2.5 =  
+- Added security enhancements.  
 
-== Upgrade Notice ==
-Yet, Not available.
+== Upgrade Notice ==  
 
+Always update to the latest version to benefit from security patches and new features.  
 
-= 1.2 =
-Resolved Https issue.
+---
 
-
-= 1.3 =
-Removed Geolocation Popup
-
-
-= 1.4 =
-Easy digital downloads support Added
-
-
-= 1.5 =
-Optimized the code
-
-
-= 1.6 =
-changed readme text
-
-
-= 1.7 =
-Varriable updates!
-
-
-= 1.8 =
-Optimized the code
-
-
-= 1.9 =
-Content correction!
-
-
-= 2.0 =
-Sanitized the variables & Optimized the code
-
-
-= 2.1 =
-Sanitized the variables & Optimized the code
-
-
-= 1.2 =
-Resolved Https issue.
-
-
-= 1.3 =
-Removed Geolocation Popup
-
-
-= 1.4 =
-Easy digital downloads support Added
-
-
-= 1.5 =
-Optimized the code
-
-
-= 1.6 =
-changed readme text
-
-
-= 1.7 =
-Varriable updates!
-
-
-= 1.8 =
-Optimized the code
-
-
-= 1.9 =
-Content correction!
-
-
-= 2.0 =
-Sanitized the variables & Optimized the code
-
-
-= 2.1 =
-Sanitized the variables & Optimized the code
-
-
-= 2.2 =
-Sanitized the variables & used default wp sanitized function
-
-
-= 2.3 =
-removed comment & fixed css issue
-
-
-= 2.4 =
-Wordpress version test
-
-
-= 2.5 =
-support added for inline social proof messages
-
-= 2.6 =
-validation checked point added.
+This version follows **official WordPress formatting standards** while ensuring **YouTube videos are displayed properly** as **clickable thumbnails** that open in a new tab. 🚀
