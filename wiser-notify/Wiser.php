@@ -3,7 +3,7 @@
  * Plugin Name: Wiser Notify
  * Plugin URI: https://wisernotify.com
  * Description: Wiser Notify plugin will make webhook remote calls to Wiser Notify backend server on each signup & new order happening in WooCommerce store. Data sent via webhook to Wiser Notifyâ€™s backend server is limited to the few anonymous pieces of information , also synced last 30 ordered with WiserNotify, Easy digital downloads support added
- * Version: 2.7
+ * Version: 2.9
  * Author: Wiser Notify
  * Author URI: https://wisernotify.com
  * */
@@ -54,9 +54,12 @@ class Wiser {
         add_menu_page('WiserNotify', 'WiserNotify', 'manage_options', 'WiserNotify', array($this, 'wiser_page_html'),  plugin_dir_url(__FILE__).'/assets/images/wiser-notifly-favi.png', 24);
     }
     /* Enqueue Scripts And Styles For Admin Only */
-    function enqueue_scripts_admin() {
-        wp_enqueue_script('wiserjs', plugin_dir_url(__FILE__) . 'assets/js/wiser.js');
-        wp_enqueue_style('wisercss', plugin_dir_url(__FILE__) . 'assets/css/style.css');
+    function enqueue_scripts_admin($hook) {
+        if ($hook !== 'toplevel_page_WiserNotify') {
+            return;
+        }
+        wp_enqueue_script('wiserjs', plugin_dir_url(__FILE__) . 'assets/js/wiser.js', array('jquery'), '2.9', true);
+        wp_enqueue_style('wisercss', plugin_dir_url(__FILE__) . 'assets/css/style.css', array(), '2.9');
         wp_enqueue_style('google-popins-fonts','https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
         wp_enqueue_style('google-roboto-fonts','https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
         wp_localize_script('wiserjs', 'ajaxVar', array('ajaxurl' => admin_url('admin-ajax.php')));
@@ -64,8 +67,12 @@ class Wiser {
     /*Enqueue Scripts For Front*/
     function enqueue_scripts_front(){
         wp_enqueue_script('jquery');
-        if($this->src != ''){
-             _e("<script>".$this->src."</script>"); 
+        if(!empty($this->src)){
+             if(function_exists('wp_print_inline_script_tag')) {
+                 wp_print_inline_script_tag($this->src);
+             } else {
+                 echo '<script>' . $this->src . '</script>' . "\n";
+             }
          }
     }
     /*Async Pixel Code*/
@@ -83,56 +90,55 @@ class Wiser {
         <div class="wiser-content-box" style="padding-top:20px">
             <div class="wiser-top-headerbar">
                 <div class="wiser-logo">
-                    <img src="<?php _e(plugin_dir_url(__FILE__)); ?>/assets/images/wiser-notifly.png" alt="wisernotifly" />
+                    <img src="<?php echo esc_url(plugin_dir_url(__FILE__) . 'assets/images/wiser-notifly.png'); ?>" alt="WiserNotify" />
                 </div>
             </div>
             <div class="wiser-install-box wiser-install-details">
                 <div class="wiser-card-title">
-                    <h3>Welcome to Wiser notify </h3>
+                    <h3>Welcome to WiserNotify</h3>
                 </div>
                 <div class="wiser-card wiser-card-sign">
-                    <h4> Don't have account? <a target="blank" href="https://app.wisernotify.com/signup?utm_source=WordPress&utm_medium=WithinPlugin">Create new account </a>
-                        And start for free. Looking for more features? <a target="blank" href="https://wisernotify.com/pricing?utm_source=WordPress&utm_medium=WithinPlugin">see our paid plans. </a>
+                    <h4> Don't have an account? <a target="_blank" rel="noopener noreferrer" href="https://app.wisernotify.com/signup?utm_source=WordPress&utm_medium=WithinPlugin">Create a new account</a>
+                        and start for free. Looking for more features? <a target="_blank" rel="noopener noreferrer" href="https://wisernotify.com/pricing?utm_source=WordPress&utm_medium=WithinPlugin">See our paid plans.</a>
                     </h4>
                 </div>
             </div>
             <div class="wiser-install-box wiser-api-block">
                 <div class="wiser-card-title">
-                    <h3> Must Required </h3>
+                    <h3>Required Setup</h3>
                 </div>
                 <div class="wiser-card wiser-card-api">
                     <div class="nf-group-input">
                         <form method="POST" id="api_form">
                             <?php wp_nonce_field('wiser_form_action', 'wiser_form_nonce'); ?>
 
-                            <label>Enter your API Key. </label>
+                            <label>Enter your API Key</label>
                             <div class="line-input-btn">
                                 <input type="hidden" name="action" value="varify_api"/>
-                                <input type="text" name="api_key" value="<?php _e($apiKey); ?>" id="api_key" class="nf-input nf-input-sm">
+                                <input type="text" name="api_key" value="<?php echo esc_attr($apiKey); ?>" id="api_key" class="nf-input nf-input-sm">
                                 <button type="submit" name="submit" class="nf-btn nf-btn-default"> Submit </button>
-                                <!--<input type="submit" name="submit" value="Save" class="button button-primary button-large">-->
                             </div>
                         </form>
                     </div>
                     <div class="nf-group-bottom">
-                        <a target="blank"
-                           href="https://wisernotify.com/docs/getting-started/get-your-api-key-from-your-wisernotify-account/">Get your API KEY </a>
+                        <a target="_blank" rel="noopener noreferrer"
+                           href="https://wisernotify.com/docs/getting-started/get-your-api-key-from-your-wisernotify-account/">Get your API key</a>
                     </div>
                     <div class="nt-msg-text">
-                        <p class="red-text">Your API key is wrong & Please, Enter valid API key.</p>
+                        <p class="red-text">Your API key is invalid. Please enter a valid API key.</p>
                         <p class="success-msg wn-success">
-                             Congratulation! Your API key is verified & Also, Pixel tag is added successfully on your site.
-                            <a target="blank"
+                             Congratulations! Your API key is verified and the pixel tag has been added to your site.
+                            <a target="_blank" rel="noopener noreferrer"
                                href="https://wisernotify.com/docs/notifications/social-proof/">
-                                Explore notifications guides</a>
+                                Explore notification guides</a>
                         </p>
                     </div>
                 </div>
             </div>
             <div class="nf-highlight-btm">
-                <h3><a target="blank" href="https://app.wisernotify.com/login" >
+                <h3><a target="_blank" rel="noopener noreferrer" href="https://app.wisernotify.com/login">
                          Here
-                    </a> is WiserNotify dashboard link where you can create & manage notifications.
+                    </a> is the WiserNotify dashboard link where you can create and manage notifications.
                 </h3>
             </div>
         </div>
@@ -187,14 +193,12 @@ function varify_api() {
 
     // 1. Nonce Verification
     if (!isset($_POST['wiser_form_nonce']) || !wp_verify_nonce($_POST['wiser_form_nonce'], 'wiser_form_action')) {
-        _e(json_encode(['success' => false, 'message' => 'Nonce verification failed!']));
-        die();
+        wp_send_json(array('success' => false, 'message' => 'Nonce verification failed!'));
     }
 
     // 2. Permission Check
     if (!current_user_can('manage_options')) {
-        _e(json_encode(['success' => false, 'message' => 'You do not have sufficient permissions to access this function.']));
-        die();
+        wp_send_json(array('success' => false, 'message' => 'You do not have sufficient permissions to access this function.'));
     }
 
     $key = sanitize_text_field($_POST['api_key']);
@@ -207,14 +211,17 @@ function varify_api() {
         'ht' => $host
     );
 
+    // Buffer output from intermediate calls to prevent corrupting JSON response
+    ob_start();
+
     $wiser_varify_api_for_plugins = $this->wiser_varify_api_for_plugins($dataArr, $apikey);
     if ($wiser_varify_api_for_plugins) {
         if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
-            $order_json = $this->wiser_get_order_details();
-            $order_json = $this->wiser_get_comment();
+            $this->wiser_get_order_details();
+            $this->wiser_get_comment();
             update_option('wiser_enable_for_wp', 1);
         }
-     
+
 		if ( function_exists('edd_get_payment') ) {
             // Prepare data for EDD
             $dataArr = array(
@@ -226,22 +233,20 @@ function varify_api() {
 
             if ( $wiser_varify_edd == 1 ) {
                 update_option('wiser_enable_for_edd', 1);
-				// Fetch latest 30 orders and send to WiserNotify
-        $this->wiser_send_latest_30_edd_orders();
-
+                $this->wiser_send_latest_30_edd_orders();
             } else {
                 update_option('wiser_enable_for_edd', 0);
             }
         } else {
             update_option('wiser_enable_for_edd', 0);
         }
-        $ajaxRes['success'] = true;
-        _e(json_encode($ajaxRes));
+
+        ob_end_clean();
+        wp_send_json(array('success' => true));
     } else {
-        $ajaxRes['success'] = false;
-        _e(json_encode($ajaxRes));
+        ob_end_clean();
+        wp_send_json(array('success' => false));
     }
-    die();
 }
 
 	// Function to Get Last 30 Order Records
@@ -280,7 +285,6 @@ function varify_api() {
                 $body = wp_remote_retrieve_body($response);
                 $bodyArr = json_decode($body);
             }
-            _e(json_encode($orders_data));
     }
 
     function wiser_get_comment(){

@@ -3,9 +3,9 @@ Contributors: wisernotify
 Tags:  social proof, fomo, sales popup, reviews notification, woocommerce 
 Donate link: https://wisernotify.com  
 Requires at least: 5.1  
-Tested up to: 6.7.2  
+Tested up to: 6.9.1  
 Requires PHP: 7.2  
-Stable tag: 2.7 
+Stable tag: 2.9
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -184,7 +184,21 @@ For more details, you can visit [FAQ page](https://wisernotify.com/pricing/#faq)
 10. Data-source- Connect multitple data-source for any notifications using integrations or autom capture forms
 
 
-== Changelog ==  
+== Changelog ==
+
+= 2.9 =
+- Fixed admin page styling not loading due to CSS class mismatch.
+- Scoped admin CSS and JS to WiserNotify settings page only.
+- Fixed API key form showing success message before server response.
+- Added loading indicator on submit button during API verification.
+- Replaced misused translation functions with proper escaping and output functions.
+- Fixed external links missing proper target attribute.
+- Improved UI copy and grammar throughout the settings page.
+- Removed unused CSS file and dead JavaScript code.
+- Tested with WordPress 6.9.1.
+
+= 2.8 =
+- Woocommerce reviews supports added.
 
 = 2.7 =
 - WooCommerce & EasyDigitalDownloads updates.
